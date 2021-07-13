@@ -12,3 +12,19 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+
+function makeGallery(imageArray) {
+  const ulElement = document.querySelector('#gallery');
+  ulElement.classList.add('ul-container');
+  
+  const markUpString = imageArray.reduce(
+    (string, item) => string + `<li><img class="image" src="${item.url} alt="${item.alt}" width="267" height="150"></li>`,
+    ""
+  );
+  
+  ulElement.insertAdjacentHTML('afterbegin', markUpString);  
+}
+
+
+makeGallery(images);

@@ -1,17 +1,17 @@
-// объявление функций
+// ----- объявление функций -----
 
 const getUlNode = selector => document.querySelector(selector);
 
 const getItemArray = (node, childSelector) => [...node.querySelectorAll(childSelector)];
 
-const categoryAmount = function (selector, childSelector) {
+const categoryAmount = function ({ selector, childSelector }) {
     const mainNode = getUlNode(selector);
     const amountOfCategory = getItemArray(mainNode, childSelector).length;
     console.log(`В списке ${amountOfCategory} категории`);
 };
 
-const categoryDescription = function (parentSelector, childSelector) {
-    const mainNode = getUlNode(parentSelector);
+const categoryDescription = function ({ selector, childSelector }) {
+    const mainNode = getUlNode(selector);
 
     getItemArray(mainNode, childSelector).
         forEach(item => {
@@ -22,8 +22,9 @@ const categoryDescription = function (parentSelector, childSelector) {
     })    
 };
 
-// вызов функций
 
-categoryAmount('ul#categories', '.item');
+// ----- вызов функций -----
 
-categoryDescription('ul#categories', '.item');
+categoryAmount({selector: 'ul#categories', childSelector: '.item'});
+
+categoryDescription({selector: 'ul#categories', childSelector: '.item'});
