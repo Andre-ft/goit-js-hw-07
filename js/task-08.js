@@ -1,18 +1,18 @@
 class BoxCreator{
     _refs;
 
-    constructor() {        
-        this._refs = this.makeRefs();
+    constructor(setupObj) {        
+        this._refs = this.makeRefs(setupObj);
         this.bindEvents();
     }
 
-    makeRefs() {
+    makeRefs({controlsBlockSelector, renderBtnSelector, clearBtnSelector, outputSelector}) {
         const refs = {};
 
-        refs.inputField = document.querySelector('#controls').firstElementChild;
-        refs.createBoxesBtn = document.querySelector('[data-action="render"]');
-        refs.clearBtn = document.querySelector('[data-action="destroy"]');
-        refs.boxesOutput = document.querySelector('#boxes');
+        refs.inputField = document.querySelector(controlsBlockSelector).firstElementChild;
+        refs.createBoxesBtn = document.querySelector(renderBtnSelector);
+        refs.clearBtn = document.querySelector(clearBtnSelector);
+        refs.boxesOutput = document.querySelector(outputSelector);
 
         return refs;
     }
@@ -65,4 +65,11 @@ class BoxCreator{
     }
 }
 
-new BoxCreator();
+const setupObject = {
+    controlsBlockSelector: '#controls',
+    renderBtnSelector: '[data-action="render"]',
+    clearBtnSelector: '[data-action="destroy"]',
+    outputSelector: '#boxes',
+};
+
+new BoxCreator(setupObject);
