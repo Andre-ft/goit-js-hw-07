@@ -1,8 +1,8 @@
 const inputRangeBtn = document.querySelector('#font-size-control');
 const textOutput = document.querySelector('#text');
 
-inputRangeBtn.addEventListener('input', callBack);
+inputRangeBtn.addEventListener('input', changeMessageSize);
 
-function callBack() {
+function changeMessageSize() {
     textOutput.style.fontSize = inputRangeBtn.value + 'px';
 }

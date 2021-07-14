@@ -1,9 +1,9 @@
 const inputField = document.querySelector('#name-input');
 const outputField = document.querySelector('#name-output');
 
-inputField.addEventListener('input', callBack);
+inputField.addEventListener('input', outputName);
 
-function callBack() {
+function outputName() {
     if (!inputField.value) {
         outputField.textContent = 'незнакомец';
         return;

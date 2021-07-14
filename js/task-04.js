@@ -1,9 +1,9 @@
 class Counter{
   _counterValue;
   _refs;
-  constructor(value = 0) {
-    this._counterValue = value;
-    this._refs = this._getRefs();
+  constructor({incrementSelector, decrementSelector, counterSelector, initialValue = 0}) {
+    this._counterValue = initialValue;
+    this._refs = this._getRefs(incrementSelector, decrementSelector, counterSelector);
     this._bindEvents();
   }
  
@@ -15,12 +15,12 @@ class Counter{
     this._counterValue -= 1;
   }
 
-  _getRefs() {
+  _getRefs(incrementSelector, decrementSelector, counterSelector) {
     let refs = {};
 
-    refs.incrementButton = document.querySelector('[data-action="increment"]');
-    refs.decrementButton = document.querySelector('[data-action="decrement"]');
-    refs.counter = document.querySelector('#value');
+    refs.incrementButton = document.querySelector(incrementSelector);
+    refs.decrementButton = document.querySelector(decrementSelector);
+    refs.counter = document.querySelector(counterSelector);
 
     return refs;
   }
@@ -42,5 +42,12 @@ class Counter{
   }
 }
 
-new Counter();
+const setupObject = {
+  incrementSelector: '[data-action="increment"]',
+  decrementSelector: '[data-action="decrement"]',
+  counterSelector: '#value',
+  initialValue: 0,
+}
+
+new Counter(setupObject);
 
