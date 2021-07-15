@@ -7,14 +7,12 @@ class BoxCreator{
     }
 
     makeRefs({controlsBlockSelector, renderBtnSelector, clearBtnSelector, outputSelector}) {
-        const refs = {};
-
-        refs.inputField = document.querySelector(controlsBlockSelector).firstElementChild;
-        refs.createBoxesBtn = document.querySelector(renderBtnSelector);
-        refs.clearBtn = document.querySelector(clearBtnSelector);
-        refs.boxesOutput = document.querySelector(outputSelector);
-
-        return refs;
+        return {
+            inputField: document.querySelector(controlsBlockSelector).firstElementChild,
+            createBoxesBtn: document.querySelector(renderBtnSelector),
+            clearBtn: document.querySelector(clearBtnSelector),
+            boxesOutput: document.querySelector(outputSelector),
+        }
     }
 
     bindEvents() {
@@ -50,7 +48,6 @@ class BoxCreator{
             const divElem = document.createElement('div');
             const colorArray = this.setColor();
             
-            // divElem.classList.add('divElem');
             divElem.style.margin = '5px';
             divElem.style.width = elemSize + 'px';
             divElem.style.height = elemSize + 'px';

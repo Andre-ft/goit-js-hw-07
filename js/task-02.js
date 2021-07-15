@@ -23,7 +23,7 @@ makeListFunction('#ingredients');
 //  --- второй вариант без document.createElement()
 
 // function makeListFunction(selector) {
-//   document.querySelecto r(selector).innerHTML = ingredients.reduce(
+//   document.querySelector(selector).innerHTML = ingredients.reduce(
 //     (string, item) => string + `<li>${item}</li>`, "");
 // }
 
