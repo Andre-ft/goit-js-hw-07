@@ -2,12 +2,12 @@ class BoxCreator{
     _refs;
 
     constructor(setupObj) {        
-        this._refs = this.makeRefs(setupObj);
+        this.makeRefs(setupObj);
         this.bindEvents();
     }
 
     makeRefs({controlsBlockSelector, renderBtnSelector, clearBtnSelector, outputSelector}) {
-        return {
+        this._refs = {
             inputField: document.querySelector(controlsBlockSelector).firstElementChild,
             createBoxesBtn: document.querySelector(renderBtnSelector),
             clearBtn: document.querySelector(clearBtnSelector),
